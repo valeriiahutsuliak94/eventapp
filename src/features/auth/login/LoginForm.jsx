@@ -1,19 +1,17 @@
 import React from 'react';
-import { Form, Segment, Button, Label, Divider } from 'semantic-ui-react';
+import { Form, Segment, Button, Label } from 'semantic-ui-react';
 import { reduxForm, Field } from 'redux-form';
 import TextInput from '../../../app/common/form/TextInput';
-import { login, socialLogin } from '../authActions';
+import { login } from '../authActions';
 import { connect } from 'react-redux';
-import SocialLogin from '../SocialLogin/SocialLogin';
 
 const actions = {
-  login,
-  socialLogin
+  login
 };
 
-const LoginForm = ({ login, handleSubmit, error, socialLogin }) => {
+const LoginForm = ({ login, handleSubmit, error }) => {
   return (
-    <Form size='large' onSubmit={handleSubmit(login)} autoComplete='off'>
+    <Form  size='large' onSubmit={handleSubmit(login)} autoComplete='off'>
       <Segment>
         <Field
           name='email'
@@ -31,10 +29,6 @@ const LoginForm = ({ login, handleSubmit, error, socialLogin }) => {
         <Button fluid size='large' color='teal'>
           Login
         </Button>
-        <Divider horizontal>
-          Or
-        </Divider>
-        <SocialLogin socialLogin={socialLogin} />
       </Segment>
     </Form>
   );

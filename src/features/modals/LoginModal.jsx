@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Modal} from 'semantic-ui-react';
 import {connect} from 'react-redux';
-
 import LoginForm from '../auth/login/LoginForm'
 import {closeModal} from "./modalActions";
 
@@ -16,7 +15,7 @@ class LoginModal extends Component {
                 onClose={this.props.closeModal}
             >
                 <Modal.Header>
-                    Login to Re-vents
+                    Login to Events
                 </Modal.Header>
                 <Modal.Content>
                     <Modal.Description>

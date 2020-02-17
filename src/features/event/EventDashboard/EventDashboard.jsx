@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Grid, Button, Loader } from 'semantic-ui-react';
+import { Grid,  Loader } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import EventList from '../EventList/EventList';
 import { getEventsForDashboard } from '../eventActions';
 import LoadingComponent from '../../../app/layout/LoadingComponent';
-import EventActivity from '../EventActivity/EventActivity';
+// import EventActivity from '../EventActivity/EventActivity';
 import { firestoreConnect } from 'react-redux-firebase';
 
 const mapState = state => ({
@@ -71,7 +71,7 @@ class EventDashboard extends Component {
           />
         </Grid.Column>
         <Grid.Column width={6}>
-          <EventActivity />
+          {/* <EventActivity /> */}
         </Grid.Column>
         <Grid.Column width={10}>
           <Loader active={loading} />

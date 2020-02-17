@@ -10,7 +10,8 @@ import {formatDistance} from 'date-fns'
  class EventDetailedChat extends Component {
   state = {
     showReplyForm: false,
-    selectedCommentId: null
+    selectedCommentId: null,
+    
   }
 
   handleOpenReplyForm = (id) => () => {
@@ -57,7 +58,8 @@ import {formatDistance} from 'date-fns'
                   </Comment.Metadata>
                   <Comment.Text>{comment.text}</Comment.Text>
                   <Comment.Actions>
-                    <Comment.Action onClick={this.handleOpenReplyForm(comment.id)}>Reply</Comment.Action>
+                 
+                    <Comment.Action onClick={this.handleOpenReplyForm(comment.id)}>Reply</Comment.Action>)
                     {showReplyForm && selectedCommentId === comment.id && (
                     <EventDetailedChatForm 
                     addEventComment={addEventComment} 

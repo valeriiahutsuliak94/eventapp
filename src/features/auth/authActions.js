@@ -47,27 +47,27 @@ export const registerUser = user => async (
   }
 };
 
-export const socialLogin = (selectedProvider) => 
-  async (dispatch, getState, {getFirebase, getFirestore}) => {
-    const firebase = getFirebase();
-    const firestore = getFirestore();
-    try {
-      dispatch(closeModal())
-      const user = await firebase.login({
-        provider: selectedProvider,
-        type: 'popup'
-      })
-      if (user.additionalUserInfo.isNewUser) {
-        await firestore.set(`users/${user.user.uid}`, {
-          displayName: user.profile.displayName,
-          photoURL: user.profile.avatarUrl,
-          createdAt: firestore.FieldValue.serverTimestamp()
-        })
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
+// export const socialLogin = (selectedProvider) => 
+//   async (dispatch, getState, {getFirebase, getFirestore}) => {
+//     const firebase = getFirebase();
+//     const firestore = getFirestore();
+//     try {
+//       dispatch(closeModal())
+//       const user = await firebase.login({
+//         provider: selectedProvider,
+//         type: 'popup'
+//       })
+//       if (user.additionalUserInfo.isNewUser) {
+//         await firestore.set(`users/${user.user.uid}`, {
+//           displayName: user.profile.displayName,
+//           photoURL: user.profile.avatarUrl,
+//           createdAt: firestore.FieldValue.serverTimestamp()
+//         })
+//       }
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   }
 
 export const updatePassword = (creds) => 
   async (dispatch, getState, {getFirebase}) => {
